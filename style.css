@@ -56,7 +56,7 @@ body {
 }
 
 /* Buttons Styling */
-button {
+button-container button {
     width: 200px;
     font-size: 1.2rem;
     padding: 19px 20px;
@@ -70,18 +70,10 @@ button {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Make both buttons have equal width */
-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.button-container button:hover {
+    background-color: #000000ea;
+    transform: scale(1.05);
 }
-
-/* Buttons Hover Effect */
-button:hover {
-    background-color: #e65c54;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 600px) {
     .main-header {
