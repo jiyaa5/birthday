@@ -15,11 +15,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center; /* Vertically center the content */
-    flex-direction: column; /* Stack the text vertically */
     width: 100%;
     height: 100vh; /* Full height of the viewport */
     box-sizing: border-box;
-    background-color: #fdf6e3; /* Optional: Add a background for clarity */
 }
 
 /* Text Lines */
@@ -37,7 +35,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    gap: 20px;
 }
 
 /* Bulbs Container */
@@ -63,7 +60,6 @@ body {
     display: flex;                      /* Enables Flexbox layout */
     justify-content: center;            /* Horizontally centers the button */
     align-items: center;                /* Vertically centers the button */
-    height: 100vh;                      /* Makes the container take full viewport height */
     width: 100%;                        /* Makes the container take full width */
     position: relative;                 /* Ensures relative positioning for centering */
 }
@@ -98,7 +94,6 @@ body {
     top: 0;                         /* Aligns the container to the top */
     left: 0;                         /* Ensures the container aligns to the left edge */
     width: 90%;                    /* Full width of the screen */
-    height: 90vh;                  /* Full height of the viewport */
     display: flex;                  /* Flexbox layout */
     justify-content: center;        /* Center content horizontally */
     align-items: center;            /* Center content vertically */
@@ -115,8 +110,8 @@ body {
 }
 
 .gif-container img {
-    width: 100%; /* Full width for responsiveness */
-    max-width: 600px; /* Limit maximum size */
+    width: 90%; /* Full width for responsiveness */
+    max-width: 400px; /* Limit maximum size */
 }
 
 @keyframes floatUp {
