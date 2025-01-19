@@ -89,14 +89,19 @@ body {
     margin-top: 0;                 /* removes space at the top */
 }
 
+
+.gif-container img {
+    width: 90%; /* Full width for responsiveness */
+    max-width: 400px; /* Limit maximum size */
+}
 .fgif-container {
     position: fixed;               /* Position the container at the top of the screen */
     top: 0;                         /* Aligns the container to the top */
     left: 0;                         /* Ensures the container aligns to the left edge */
     width: 90%;                    /* Full width of the screen */
     display: flex;                  /* Flexbox layout */
-    justify-content: center;        /* Center content horizontally */
-    align-items: center;            /* Center content vertically */
+    justify-content:flex_start;        /* Center content horizontally */
+    align-items: flex-start;            /* Center content vertically */
     z-index: 1000;                   /* Stands on top of other elements */
     padding: 0;                      /* Removes any default padding */
     margin: 0;                       /* Removes any default margin */
@@ -107,11 +112,6 @@ body {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;            /* Ensures the image scales to fill the container */
-}
-
-.gif-container img {
-    width: 90%; /* Full width for responsiveness */
-    max-width: 400px; /* Limit maximum size */
 }
 
 @keyframes floatUp {
