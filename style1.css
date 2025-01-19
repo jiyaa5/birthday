@@ -1,0 +1,196 @@
+/* General Reset and Font */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Welcome Page */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.gif-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid #2c3e50;
+    white-space: nowrap;
+    margin: 0 auto;
+    width: 300px;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Text and Buttons */
+.second-text {
+    font-size: 2rem;
+    opacity: 0;
+    margin-top: 20px;
+    transition: opacity 1s ease;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Birthday Page */
+.birthday-page {
+    display: none;
+    text-align: center;
+    position: relative;
+    background-color: #1a1a1a;
+    color: white;
+    min-height: 100vh;
+    transition: background-color 1s ease;
+}
+
+.birthday-page.lights-on {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background: #ffd700;
+    border: none;
+    border-radius: 25px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    margin: 20px 0;
+    animation: pulse 2s infinite;
+}
+
+.light-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+
+.bulb-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.bulb-container.visible {
+    opacity: 1;
+}
+
+.bulb {
+    width: 50px;
+    height: 50px;
+    animation: swing 2s infinite ease-in-out;
+}
+
+.cake-container {
+    margin: 20px auto;
+    max-width: 500px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.cake-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cake {
+    width: 100%;
+    height: auto;
+}
+
+.message {
+    font-size: 2rem;
+    color: #ff69b4;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.5s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.message.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Animations */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 300px }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+.blown-out {
+    filter: brightness(0.5);
+    transform: scale(0.95);
+    transition: all 0.5s ease;
+}
+
+/* Confetti & Sparkle */
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkle 1s linear forwards;
+}
+
+@keyframes sparkle {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: var(--tx) var(--ty) scale(0.1); opacity: 0; }
+}
+
+/* ... Previous styles remain unchanged ... */
+

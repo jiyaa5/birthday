@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise!</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+    <!-- First page with excitement prompt -->
+    <div class="container" id="welcome-page">
+        <h1><span class="typewriter">It is 20th January...</span></h1>
+        <div class="gif-container">
+            <img src="./jumping-gatito.gif" alt="Excited Birthday GIF">
+        </div>
+        <h1 class="second-text">Are you excited? 🎉</h1>
+        <div class="button-container">
+            <button onclick="showBirthdayPage()">Yes!</button>
+            <button onclick="showBirthdayPage()">YES!! 🥳</button>
+        </div>
+    </div>
+
+    <!-- Second page with birthday celebration -->
+    <div class="container birthday-page" id="birthday-page">
+        <button class="light-button" onclick="turnOnLights()">Turn On Lights ✨</button>
+        
+        <div class="bulb-container" id="bulbContainer">
+            <!-- Example bulbs -->
+            <img src="./bulb_blue.png" alt="Bulb 1" class="bulb">
+            <img src="./bulb_orange.png" alt="Bulb 2" class="bulb">
+            <img src="./bulb_pink.png" alt="Bulb 3" class="bulb">
+        </div>
+        
+        <div class="cake-container" id="cakeContainer">
+            <img src="./pavan-unscreen.gif" alt="Birthday Cake" class="cake" id="cake">
+            <button class="light-button" onclick="blowCandles()" id="blowButton" style="display: none;">Blow Candles 🎂</button>
+        </div>
+        
+        <div class="message" id="birthdayMessage">
+            🎉 Happy Birthday! 🎂<br>
+            May all your wishes come true! ⭐
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                document.querySelector('.second-text').style.opacity = '1';
+                document.querySelector('.button-container').style.opacity = '1';
+            }, 3500);
+        }
+
+        function showBirthdayPage() {
+            document.getElementById('welcome-page').style.display = 'none';
+            document.getElementById('birthday-page').style.display = 'block';
+        }
+
+        function turnOnLights() {
+            const birthdayPage = document.getElementById('birthday-page');
+            const bulbContainer = document.getElementById('bulbContainer');
+            const cakeContainer = document.getElementById('cakeContainer');
+            const blowButton = document.getElementById('blowButton');
+            
+            birthdayPage.classList.add('lights-on');
+            bulbContainer.classList.add('visible');
+            
+            setTimeout(() => {
+                cakeContainer.classList.add('visible');
+                blowButton.style.display = 'inline-block';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

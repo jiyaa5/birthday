@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise - Page 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Decorative Top Bar -->
+    <div class="container">
+        <!-- Big Header with Typing Effect -->
+        <h1 class="main-header" id="mainHeader"></h1>
+
+        <!-- Centered GIF -->
+        <div class="gif-container">
+            <img src="./jumping-gatito.gif" alt="Excited Birthday GIF">
+
+        </div>
+
+        <!-- Excitement Text -->
+        <h2 class="sub-header">Are you excited? 🎉</h2>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button onclick="goToPage2()">Yes!</button>
+            <button onclick="goToPage2()">YES!! 🥳</button>
+        </div>
+    </div>
+
+    <script>
+        function goToPage2() {
+            window.location.href = 'page2.html';
+        }
+
+        // Typing Effect for Header
+        const headerText = "It is 20th January Yayy!";
+        const headerElement = document.getElementById('mainHeader');
+        let index = 0;
+
+        function typeEffect() {
+            if (index < headerText.length) {
+                headerElement.innerHTML += headerText[index];
+                index++;
+                setTimeout(typeEffect, 50); // Adjust typing speed here
+            }
+        }
+
+        // Trigger the typing effect on page load
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>

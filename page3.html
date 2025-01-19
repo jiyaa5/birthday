@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift</title>
+    <style>
+
+.centered-image {
+    display: flex;                        /* Enables Flexbox */
+    justify-content: center;              /* Horizontally centers the image */
+    align-items: center;                  /* Vertically centers the image */
+    width: 100%;                          /* Takes full width on all screen sizes */
+    height: 100vh;                        /* Takes full height of the viewport */
+    object-fit: contain;                  /* Ensures the image fits within the container without stretching */
+    margin: 0 auto;                       /* Centers horizontally with automatic margins */
+    position: absolute;                  /* Absolute positioning relative to the container */
+    top: 0;                               /* Stays at the top */
+    left: 0;                               /* Stays at the left */
+    background-color: rgba(255, 255, 255, 0.9); /* Optional background overlay for visibility */
+}
+
+@media (max-width: 768px) {
+    .centered-image {
+        height: 80vh;                      /* Adjusts height on smaller screens (mobile) */
+    }
+}
+        /* Hide elements */
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive text */
+        .p {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 3vw;
+        }
+
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Adding an image with center alignment -->
+    <img src="Screenshot 2025-01-19 212127.png" alt="Description of the image" class="centered-image" id="image">
+
+    <script>
+        // Launch confetti
+        launchConfetti();
+
+        function launchConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { x: 0.5, y: 0.4 },
+                colors: ['#ff0', '#f00', '#0f0', '#00f', '#ff7700']
+            });
+
+            const duration = 2000;
+            const end = Date.now() + duration;
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    spread: 70,
+                    origin: { x: Math.random(), y: Math.random() - 0.2 },
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+
+            // After confetti disappears, hide the image and show the text with GIF
+            setTimeout(() => {
+                document.getElementById('image').classList.add('hidden');
+                displayTextAndGif();
+            }, duration + 1000); // 3 seconds after confetti
+        }
+
+        function displayTextAndGif() {
+    const textElement = document.createElement('div');
+    textElement.style.textAlign = 'center';  // Center text horizontally
+    textElement.style.marginTop = '50px';    // Add space from the top
+    document.body.appendChild(textElement);
+
+    // Create and style the p element inside the div
+    const textParagraph = document.createElement('p');
+    textParagraph.textContent = 'I hope you like it. Good night and Happy Birthday again';
+    textParagraph.style.fontSize = '2rem';  // Increase text size
+    textParagraph.style.margin = '0';          // Remove default margin
+    textParagraph.style.color = '#333';       // Text color
+    textParagraph.style.fontWeight = 'bold';  // Make the text bold
+    textElement.appendChild(textParagraph);
+
+    // Add a GIF below the text
+    const gifElement = document.createElement('img');
+    gifElement.src = 'Cat Meme Sticker by Database數據.gif';  // Replace with the path to your GIF
+    gifElement.style.display = 'block';
+    gifElement.style.margin = '20px auto';  // Center the GIF horizontally
+    gifElement.style.maxWidth = '80%';      // Ensure the GIF doesn't overflow on larger screens
+    document.body.appendChild(gifElement);
+}
+
+    </script>
+
+    
+</body>
+</html>

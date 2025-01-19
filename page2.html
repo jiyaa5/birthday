@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lights and Surprise!</title>
+
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="bulbs-container" id="bulbsContainer" style="visibility: hidden;">
+            <img src="./bulb_blue.png" alt="Bulb 1" class="bulb">
+            <img src="./bulb_orange.png" alt="Bulb 2" class="bulb">
+            <img src="./bulb_pink.png" alt="Bulb 3" class="bulb">
+        </div>
+        <div class="button-container">
+            <button id="lightButton" onclick="turnOnLights()">Turn On Lights ✨</button>
+        </div>
+        <div class="gif-container" id="gifContainer" style="display: none;">
+            <img src="./pavan-unscreen.gif" alt="Surprise GIF">
+        </div>
+        <div class="fgif-container" id="finalGifContainer" style="display: none;">
+            <img src="./Untitled-design-unscreen.gif" alt="Final Surprise GIF">
+        </div>
+            <div class="birthday-text" id="birthdayText" style="display: none;">
+            <div class="text-line" style="color: #2F0058;">HAPPY</div>
+            <div class="text-line" style="color: #7B5178;">BIRTHDAY</div>
+            <div class="text-line" style="color: #9777B4;">PAVAN</div>
+        </div>
+
+        <!-- Add these in your HTML -->
+<div class="birthday-text2" id="amazingTextContainer" style="display: none; text-align: center;">
+    <div class="amazing-text">
+        You’re like a human version of dessert—sweet, impossible not to love, and honestly, just the best. I’d write a whole essay about how great you are, but I know you’d skip to the end, so here’s your fav cat:
+    </div>
+    <div class="amazing-gif-container">
+        <img src="./oia-uia.gif" alt="Amazing GIF" style="width: 200px;">
+    </div>
+    <div class="gift-button-container" style="margin-top: 20px;">
+        <button id="giftButton" onclick="redirectToGift()" style="padding: 10px 20px; font-size: 1rem; background-color: #2F0058; color: #fff; border: none; cursor: pointer; border-radius: 5px;">
+            A Gift for You❤️
+        </button>
+    </div>
+</div>
+
+        
+    </div>
+
+    <script>
+        function turnOnLights() {
+    // 1. Hide button and change background
+    const button = document.getElementById('lightButton');
+    button.style.display = 'none';
+    document.body.style.backgroundColor = '#ffffff';
+
+    // 2. Show bulbs
+    const bulbs = document.getElementById('bulbsContainer');
+    bulbs.style.visibility = 'visible';
+
+    // 3. Launch confetti after a small delay
+    setTimeout(() => {
+        launchConfetti();
+
+        // 4. Show GIF
+        const gif = document.getElementById('gifContainer');
+        gif.style.display = 'block';
+
+        // 5. Hide bulbs and GIF after 5 seconds
+        setTimeout(() => {
+            gif.style.display = 'none';
+            bulbs.style.visibility = 'hidden';
+
+            // 6. Show birthday text
+            showBirthdayText();
+
+            // 7. Hide birthday text and show final GIF after 3 seconds
+            setTimeout(() => {
+                const birthdayText = document.getElementById('birthdayText');
+                birthdayText.style.display = 'none';
+
+                // Show the final surprise GIF
+                const finalGif = document.getElementById('finalGifContainer');
+                finalGif.style.display = 'block';
+
+                // Hide the final GIF and show amazing text after 5 seconds
+                setTimeout(() => {
+                    finalGif.style.display = 'none';
+                    showAmazingText();
+                }, 4000);
+            }, 3000);
+        }, 5000);
+    }, 500);
+}
+
+function showAmazingText() {
+    const amazingTextContainer = document.getElementById('amazingTextContainer');
+    amazingTextContainer.style.display = 'block';
+}
+
+function redirectToGift() {
+    window.location.href = 'page3.html';
+}
+
+
+
+
+        function showBirthdayText() {
+            const textContainer = document.getElementById('birthdayText');
+            textContainer.style.display = 'flex';
+            
+            const textLines = document.querySelectorAll('.text-line');
+            textLines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('bounce');
+                }, index * 500);
+            });
+        }
+
+        function launchConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { x: 0.5, y: 0.4 },
+                colors: ['#ff0', '#f00', '#0f0', '#00f', '#ff7700']
+            });
+
+            const duration = 2000;
+            const end = Date.now() + duration;
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    spread: 70,
+                    origin: { x: Math.random(), y: Math.random() - 0.2 },
+                });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            })();
+        }
+
+    </script>
+</body>
+</html>
