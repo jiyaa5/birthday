@@ -14,7 +14,6 @@ body {
 
 /* Container */
 .container {
-    background-color: #ffffff;
     padding: 20px;
     width: 90%;
     max-width: 500px;
@@ -38,7 +37,7 @@ body {
 /* GIF Image */
 .gif-container img {
     max-width: 100%;
-    height: auto;
+    height: 30vh;
 }
 
 /* Sub-header */
@@ -58,15 +57,17 @@ body {
 
 /* Buttons Styling */
 button {
-    background-color: #ff6f61;
-    color: #ffffff;
+    width: 200px;
+    font-size: 1.2rem;
+    padding: 19px 20px;
+    margin: 0px;
+    background-color: #bc94ce;
+    color: hsl(0, 0%, 100%);
     border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s;
-    flex-grow: 1;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Make both buttons have equal width */
