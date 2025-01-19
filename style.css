@@ -1,98 +1,86 @@
-/* General Reset */
-body, html {
+
+
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #fdf6e3;
-    color: #2c3e50;
+    flex-direction: column;
+    text-align: center;
 }
 
-/* Container Styling */
+/* Container */
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 100vh;
-    padding: 0;
-    box-sizing: border-box;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
 }
 
-/* Main Header */
+/* Header Styles */
 .main-header {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
-
-/* Sub Header */
-.sub-header {
-    text-align: center;
     font-size: 3rem;
-    color: #333;
-    margin-top: 0px;
-}
-
-/* Button Container */
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 0px;
-}
-
-.button-container button {
-    width: 200px;
-    font-size: 1.2rem;
-    padding: 19px 20px;
-    margin: 0px;
-    background-color: #bc94ce;
-    color: hsl(0, 0%, 100%);
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.button-container button:hover {
-    background-color: #000000ea;
-    transform: scale(1.05);
+    color: #333333;
+    margin-bottom: 20px;
 }
 
 /* GIF Container */
 .gif-container {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    width: 90%;
-    height: 50vh;
-    position: relative;
-    z-index: 1000;
+    margin-bottom: 30px;
 }
 
-@media (max-width: 768px) {
-    .gif-container {
-        height: 80vh;
-    }
+/* Sub-header */
+.sub-header {
+    font-size: 1.8rem;
+    color: #555555;
+    margin-bottom: 20px;
+}
 
+/* Buttons */
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Buttons Styling */
+button {
+    background-color: #ff6f61;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Buttons Hover Effect */
+button:hover {
+    background-color: #e65c54;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
     .main-header {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .sub-header {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
 
-    .button-container button {
-        font-size: 1rem;
+    button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
-/* GIF Styles */
-.gif-container img {
-    width: 100%; /* Full width on mobile */
-    max-width: 500px; /* Max size for larger devices */
-}
